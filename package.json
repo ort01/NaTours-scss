@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ort01/Outdoors-project-CSS-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ort01/Outdoors-project-CSS-/issues"
+  },
+  "homepage": "https://github.com/ort01/Outdoors-project-CSS-#readme",
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}
