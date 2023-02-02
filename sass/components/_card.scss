@@ -6,14 +6,13 @@
     height: 52rem;
 
     &__side {
-        background-color: $color-primary-dark;
         height: 52rem;
         transition: all 1s ease;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        backface-visibility: hidden;
+        backface-visibility: hidden; //it hides the back part of the elemen, if the eelement turns the back side will be hidden
         border-radius: 3px;
         overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
@@ -23,7 +22,6 @@
         }
 
         &--back {
-            background-color: $color-primary-light;
             transform: rotateY(180deg);
 
             &-1 {
