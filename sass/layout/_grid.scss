@@ -3,9 +3,18 @@
     max-width: $grid-width;
     margin: 0 auto;
 
+    @include respond (tab-port) {
+        max-width: $grid-width-small;
+        padding: 0 3rem;
+    }
+
     &:not(:last-child) {
         //we are selecting every .row child except the last-child
         margin-bottom: $gutter-vertical; //every child element child have a margin-bottom except od the last one
+
+        @include respond (tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }
     }
 
     [class^="col-"] {
@@ -15,7 +24,17 @@
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            @include respond (tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
         }
+
+        @include respond (tab-port) {
+            width: 100% !important;
+        }
+
 
     }
 
