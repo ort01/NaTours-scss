@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <!-- IMPORTANT for media query!!  -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- content="width=device-width, initial-scale=1.0" => width of the page will be the width of the device -->
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
@@ -71,9 +73,41 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="img/nat-1-large.jpg" alt="photo1" class="composition__photo composition__photo--p1">
+
+                            <!-- RESOLUTION SWITCHING:
+                                    * srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" 
+                                        - we specify the width of each picture (300px width, 1000px width) - you can see the width of the img in the bottom blue line, when you open it in vs code 
+                                    * sizes="(max-width: 900px) 20vw, (max-width:600px) 30vw, 300px" 
+                                        - at max-width: 900px the picture should be 20% ((171px/900)*100) of the viewport width
+                                        - width of the picture should be ===> 20% of 900px; 30% of 600px
+                                        -171px can be checked in devtools
+                                        
+                                    * 300px is default if none of the sizes apply
+                             -->
+
+                             <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" 
+                                sizes="(max-width: 900px) 20vw, (max-width:600px) 30vw, 300px"
+                                alt="photo1"
+                                class="composition__photo composition__photo--p1"
+                                src="img/nat-1-large.jpg"
+                            >
+                            <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" 
+                                sizes="(max-width: 900px) 20vw, (max-width:600px) 30vw, 300px"
+                                alt="photo2"
+                                class="composition__photo composition__photo--p2"
+                                src="img/nat-2-large.jpg"
+                            >
+                            <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" 
+                                sizes="(max-width: 900px) 20vw, (max-width:600px) 30vw, 300px"
+                                alt="photo3"
+                                class="composition__photo composition__photo--p3"
+                                src="img/nat-3-large.jpg"
+                            >
+
+                            <!-- <img src="img/nat-1-large.jpg" alt="photo1" class="composition__photo composition__photo--p1">
                             <img src="img/nat-2-large.jpg" alt="photo2" class="composition__photo composition__photo--p2">
-                            <img src="img/nat-3-large.jpg" alt="photo3" class="composition__photo composition__photo--p3">
+                            <img src="img/nat-3-large.jpg" alt="photo3" class="composition__photo composition__photo--p3"> -->
+                        
                         </div>
                     </div>
                 </div>
@@ -326,7 +360,27 @@
         </main>
         <footer class="footer">
             <div class="footer__logo-box">
-                <img src="img/logo-green-2x.png" alt="full logo" class="footer__logo">
+
+                <!-- in the picture element you can specify multiple surces for one img -->
+                <picture class="footer__logo">
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+                    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="full logo" src="img/logo-green-2x.png">
+                </picture>
+
+                <!-- DENSITY SWITCHING - different img density for different screen resolutions
+                     <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="full logo" class="footer__logo"> 
+                        * srcset = for low resolution 1x, for high resolution 2x -->
+
+                <!-- ART DIRECTIONS - different imgs for different viewport width 
+                        * structure: 
+                            <picture> 
+                                <source> 
+                                <img> 
+                            </picture>
+                        * <source> media = css media query; aplly for max width of 37.5em; if the width is smaller than 37.5em, then use the srcset from <source>
+                        * in other cases use the srcset from <img> 
+                 -->
+
             </div>
             <div class="row">
                 <div class="col-1-of-2">

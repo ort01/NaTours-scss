@@ -11,6 +11,15 @@
     visibility: hidden;
     transition: all .3s;
 
+
+    // GRACEFUL DEGRADATION
+    @supports(backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+        //if these properties are supported 
+        background-color: rgb($color-black, .2);
+        backdrop-filter: blur(8px); //styles, what's behind the element that has backdrop-filter applied. 
+        -webkit-backdrop-filter: blur(8px)
+    }
+
     &:target {
         //css that applies to the element which is the target <div id="popup"> ==> <a href="#popup"/>
         //if you click on the a href="#popup" - #popup will be added to the url so it will become a target
@@ -55,8 +64,6 @@
         opacity: 0;
         transform: translate(-50%, -50%) scale(.5);
         transition: all .2s .2s;
-
-        @include respond (tab-land) {}
     }
 
     &__left {

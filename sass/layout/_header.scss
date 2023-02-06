@@ -1,14 +1,47 @@
 .header {
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(to right bottom,
             rgba($color-primary-light, 0.8),
             rgba($color-primary-dark, 0.8)),
-        url(../img/hero.jpg);
+        url(../img/hero-small.jpg); //large picture
     background-size: cover;
     background-position: top;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
     position: relative;
+
+    // FEATURE QUERY
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
+
+
+
+
+    // RESPONSIVE IMG in css = background img
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (min-width: 125em) {
+        // "," - means "or"; apply this code wheter this happens (min-resolution: 192dpi) and (min-width: 37.5em) OR (min-width: 125em)
+        /*
+            - aplly css if the resolution is higher than 192dpi and the width is bigger than 600px (37.5em)
+            - dots per inch - 192 = default for high resolution (2x)
+            - applies with 2x and more
+        */
+        background-image: linear-gradient(to right bottom,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark, 0.8)),
+            url(../img/hero.jpg); //small picture
+    }
+
+    // @media (min-width: 125em) {
+    //     * regardless the resolution
+    //     background-image: linear-gradient(to right bottom,
+    //             rgba($color-secondary-light, 0.8),
+    //             rgba($color-primary-dark, 0.8)),
+    //         url(../img/hero.jpg);
+    // }
+
 
     @include respond (phone) {
         clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
