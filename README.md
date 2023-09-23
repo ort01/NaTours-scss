@@ -8,6 +8,8 @@ The goal of the project is to practice creating an appealing and professional lo
 - SCSS 
     - 7 different folders for partial SCSS Files (base, components, layout, pages, themes, abstracts, vendors) and 
     - Main SCSS file to import all other files into a compiled CSS stylesheet
+- Cross-browser compatibility
+- Responsive design
 
 ## Credit
 
